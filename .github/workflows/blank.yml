@@ -28,12 +28,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GH_TOKEN }}
 
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_LOGIN }}
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: az bicep publish --file ./modulos/rg.bicep --target br:ghcr.io/${{ github.actor }}/bicep/modules/rg:v1
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
