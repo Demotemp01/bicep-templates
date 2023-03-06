@@ -24,13 +24,17 @@ jobs:
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_LOGIN }}
+        
+      - name: rg-create
+        run: |
+          az group create -l brazilsouth -n rg-poc-demo-generated-demo
 
       - name: deploy
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          #resourceGroupName: ${{ secrets.AZURE_RG }}
-          template: ./modulos/rg.bicep
-          parameters: 'appName=demo-generated environment=demo kindRG=poc region=brazilsouth'
+          resourceGroupName: rg-poc-demo-generated-demo
+          template: ./modulos/acr.bicep
+          parameters: 'appName=demo-generated environment=demo clusterNUm=001'
           failOnStdErr: false
 
