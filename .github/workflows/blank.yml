@@ -35,6 +35,6 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           resourceGroupName: rg-poc-demo-generated-demo
           template: ./modulos/acr.bicep
-          parameters: 'appName=demo-generated environment=demo clusterNUm=001'
+          parameters: 'appName=demogenerated environment=demo clusterNUm=001'
           failOnStdErr: false
 
