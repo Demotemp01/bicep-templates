@@ -26,3 +26,37 @@ jobs:
       - name: Upload RG Module
         run: |
           az bicep publish --file ./modulos/rg.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/rg:v1
+
+      - name: Upload ACR Module
+        run: |
+          az bicep publish --file ./modulos/acr.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/acr:v1
+
+      - name: Upload AKV Module
+        run: |
+          az bicep publish --file ./modulos/akv.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/akv:v1
+
+      - name: Upload AKS Module
+        run: |
+          az bicep publish --file ./modulos/aks.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/aks:v1
+
+      - name: Upload appgw Module
+        run: |
+          az bicep publish --file ./modulos/appgw.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/appgw:v1
+        
+      - name: Upload publicip Module
+        run: |
+          az bicep publish --file ./modulos/publicip.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/publicip:v1
+
+      - name: Upload subnet Module
+        run: |
+          az bicep publish --file ./modulos/subnet.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/subnet:v1
+
+      - name: Upload vnet Module
+        run: |
+          az bicep publish --file ./modulos/vnet.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/vnet:v1
+
+
+
+
+
+
