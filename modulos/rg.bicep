@@ -7,7 +7,6 @@ param appName string
   'qa'
   'prd'
   'preprd'
-  'demo'
 ])
 param environment string
 param kindRG string
