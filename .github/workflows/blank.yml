@@ -16,15 +16,13 @@ jobs:
         
       - name: rg-create
         run: |
-          az deployment sub create --location brazilsouth --template-file ./modulos/rg.bicep --parameters appName=demogenerated kindRG=poc environment=dev 
+          az group create -l brazilsouth -n rg-poc-demogenerated-dev
 
+      - name: Create Azure Container registry
+        run: |
+          az deployment group create --resource-group rg-poc-demogenerated-dev --template-file ./modulos/acr.bicep --parameters appName=demogenerated environment=dev clusterNUm=001
 
-      # - name: deploy
-      #   uses: azure/arm-deploy@v1
-      #   with:
-      #     subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      #     resourceGroupName: rg-poc-demo-generated-demo
-      #     template: ./modulos/acr.bicep
-      #     parameters: 'appName=demogenerated environment=demo clusterNUm=001'
-      #     failOnStdErr: false
-
+      
+      - name: Upload RG Module
+        run: |
+          az bicep publish --file ./modulos/rg.bicep --target br:acrdemogeneratedev001.azurecr.io/bicep/modules/rg:v1
