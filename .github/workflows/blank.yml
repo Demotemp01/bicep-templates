@@ -55,6 +55,9 @@ jobs:
         run: |
           az bicep publish --file ./modulos/vnet.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/vnet:v1
 
+      - name: Upload webapp Module
+        run: |
+          az bicep publish --file ./modulos/webapp.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/webapp:v1
 
 
 
