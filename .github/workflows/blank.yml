@@ -25,4 +25,4 @@ jobs:
       
       - name: Upload RG Module
         run: |
-          az bicep publish --file ./modulos/rg.bicep --target br:acrdemogeneratedev001.azurecr.io/bicep/modules/rg:v1
+          az bicep publish --file ./modulos/rg.bicep --target br:acrdemogenerateddev001.azurecr.io/bicep/modules/rg:v1
